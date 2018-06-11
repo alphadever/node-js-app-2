@@ -11,7 +11,7 @@ function validateCustomer(customer) {
   return Joi.validate(customer, schema);
 }
 
-const Customer = mongoose.model('Customer', {
+const Customer = mongoose.model('Customer', new mongoose.schema({
   name: {
     type: String,
     require: true,
@@ -26,6 +26,6 @@ const Customer = mongoose.model('Customer', {
     type: String,
     required: true,
   },
-});
+}));
 
 module.exports = { Customer, validateCustomer };
